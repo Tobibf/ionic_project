@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Alter Exam</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+
+    <!-- Content -->
+    <ion-row>
+      <ion-col sizeSm="8" offsetSm="2" sizeMd="6" offsetMd="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Add Mark</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <form [formGroup]="examForm" (ngSubmit)="saveExam()">
+              <ion-list>
+                <ion-item>
+                  <ion-label position="floating">Score</ion-label>
+                  <ion-input placeholder="Score" formControlName="score"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Course</ion-label>
+                  <ion-input placeholder="Course" formControlName="course"></ion-input>
+                </ion-item>
+              </ion-list>
+              <div class="ion-margin-vertical">
+                <ion-button (click)="selectSemester(1)" [color]="selectedSemester === 1 ? 'dark' : 'medium'">
+                  Semester 1
+                </ion-button>
+                <ion-button (click)="selectSemester(2)" [color]="selectedSemester === 2 ? 'dark' : 'medium'">
+                  Semester 2
+                </ion-button>
+              </div>
+              <ion-button [color]="examForm.valid ? 'dark' : 'medium'" expand="block" type="submit">Submit</ion-button>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

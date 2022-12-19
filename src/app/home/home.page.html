@@ -1,20 +1,90 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="secondary">
     <ion-title>
-      Blank
+      Exam Mark
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <!-- Semester records -->
+    <ion-row>
+      <ion-col sizeSm="8" offsetSm="2" sizeMd="6" offsetMd="3">
+        <ion-card *ngIf="averageCheck">
+          <ion-card-header>
+            <ion-card-title>Semester Information</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-card-subtitle>
+                    Semester {{ semesterNumber }}
+                  </ion-card-subtitle>
+                </ion-col>
+                <ion-col>
+                  <ion-card-subtitle class="ion-text-end">
+                      Average <b>{{ average }}}</b>
+                  </ion-card-subtitle>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <!-- List of Mark-->
+    <ion-row>
+      <ion-col sizeSm="8" offsetSm="2" sizeMd="6" offsetMd="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Marks</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <table *ngIf="examsList.length > 0">
+              <thead>
+                <tr>
+                  <th>Course</th>
+                  <th>Score</th>
+                  <th>Semester</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let mark of examsList">
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+            <div *ngIf="examsList.length === 0">
+              Please add a new mark
+            </div>
+            <ion-grid *ngFor="let mark of examsList">
+              <ion-row>
+                <ion-col>
+
+                </ion-col>
+                <ion-col>
+
+                </ion-col>
+                <ion-col>
+
+                </ion-col>
+              </ion-row>
+
+            </ion-grid>
+            <ion-button fill="clear" (click)="goToExam()">New Mark</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
