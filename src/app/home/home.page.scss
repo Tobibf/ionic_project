@@ -25,3 +25,203 @@
 #container a {
   text-decoration: none;
 }
+
+.table{
+  width: 100%;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.UT-table {
+    width: 100%;
+}
+
+.UT-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: rgb(240, 240, 240);
+}
+
+.UT-table-header p {
+    color: rgb(54, 102, 207);
+    font-size: 120%;
+    font-weight: bold;
+    font-family: Comic Sans MS;
+}
+
+.UT-table button {
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 7px;
+    margin: 2px;
+    color: #ffffff;
+}
+
+.UT-table label {
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 5px;
+    margin: 2px;
+    color: #ffffff;
+}
+
+.UT-table button a {
+    outline: none;
+    border: none;
+    color: #ffffff;
+}
+
+.UT-table tr a {
+    text-decoration: none;
+    color: none;
+}
+
+.UT-table .button-green {
+    background-color: rgb(80, 182, 80);
+}
+
+.UT-table .button-blue {
+    background-color: #0298cf;
+}
+
+.UT-table .button-orange {
+    background-color: orange;
+}
+
+.UT-table .button-violet {
+    background-color: rgb(212, 102, 212);
+}
+
+.UT-table .button-red {
+    background-color: #f80000;
+}
+
+.UT-add_New {
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: #0298cf;
+}
+
+.UT-table input {
+    padding: 10px 20px;
+    margin: 0 10px;
+    outline: none;
+    border: 1px solid #0298cf;
+    border-radius: 15px;
+    color: #0298cf;
+}
+.UT-table select {
+    padding: 10px 20px;
+    margin: 0 10px;
+    outline: none;
+    border: 1px solid #0298cf;
+    border-radius: 15px;
+    color: #0298cf;
+}
+.UT-table-section {
+    // height: 500px;
+    overflow: auto;
+}
+
+.UT-table-section table {
+    width: 100%;
+    min-width: 900px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.UT-table-section thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f6f9fc;
+    color: #8493a5;
+    font-size: 15px;
+}
+
+.UT-table-section th, .UT-table-section td {
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 20px;
+    word-break: break-all;
+    text-align: center;
+}
+
+.UT-table-section td img {
+    width: 85px;
+    height: 85px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 5px solid #ced0d2
+}
+
+.UT-table-section tr:hover td {
+    color: #0298cf;
+    cursor: pointer;
+    background-color: #f6f9fc;
+}
+
+.UT-table ::placeholder {
+    color: #0298cf;
+}
+
+/* Pagination */
+.UT-pagination {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.UT-pagination div {
+    padding: 10px;
+    border: 2px solid #d5d0d0;
+    height: 40px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0298cf;
+    color: #ffffff;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.75);
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+
+/* For scrool */
+.UT-table ::-webkit-scroolbar {
+    height: 5px;
+    width: 5px;
+}
+
+.UT-table ::-webkit-scroolbar-track {
+    box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.3);
+}
+
+.UT-table ::-webkit-scroolbar-thumb {
+    box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* .UT-table-section  {
+
+} */
+
+/* Responsive */
+@media (max-width:500px) {
+    .UT-table input {
+        float: left;
+        margin: 0 10px;
+        outline: none;
+        border: 1px solid #0298cf;
+        border-radius: 15px;
+        color: #0298cf;
+        width: 130px
+    }
+
+}

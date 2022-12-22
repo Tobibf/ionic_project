@@ -7,10 +7,6 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
-    path: 'alter-exam',
-    loadChildren: () => import('./alter-exam/alter-exam.module').then(m => m.AlterExamPageModule)
-  },
-  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
