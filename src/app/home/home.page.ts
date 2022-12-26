@@ -17,7 +17,7 @@ export class HomePage {
   activeExam: Exam | undefined;
   indexed: any;
 
-  examsList: Exam[] = []; // all of the exam results
+
   averageCheck: boolean = false;
   numberCourses: number = 0;
   totalMark: number = 0;
@@ -34,14 +34,12 @@ export class HomePage {
   selectedSemester = 0;
 
   constructor(
-    private examService: ExamService,
+    public examService: ExamService,
     private fb: FormBuilder,
     private toastController: ToastController,
   ) { }
 
-  ngOnInit() {
-    this.examsList = this.examService.getExams();
-  }
+  ngOnInit() { }
 
   // Functions
 
@@ -49,13 +47,13 @@ export class HomePage {
   calculateAverages(): void {
     this.averageCheck = true;
     this.average = 0;
-    if (this.examsList.length > 0) {
+    if (this.examService.getExams().length > 0) {
       let totalMark = 0;
       let totalMark1 = 0;
       let count1 = 0;
       let totalMark2 = 0;
       let count2 = 0;
-      for (let exam of this.examsList) {
+      for (let exam of this.examService.getExams()) {
         totalMark += exam.score;
         if (exam.semester == 1) {
           totalMark1 += exam.score;
@@ -65,7 +63,7 @@ export class HomePage {
           count2++;
         }
       }
-      this.average = (totalMark / this.examsList.length);
+      this.average = (totalMark / this.examService.getExams().length);
       this.average1 = 0;
       this.average2 = 0;
       if (count1 > 0) {
@@ -81,6 +79,9 @@ export class HomePage {
   // Allow to create new Exam
   goToExam() {
     this.addable = true;
+    this.editable = false;
+    this.averageCheck = false;
+    this.selectedSemester = 0;
   }
 
   // Save Exam of List
@@ -102,7 +103,7 @@ export class HomePage {
         }
         //  Add to service list
         this.examService.addExam(newExam);
-        this.examsList.push(newExam);
+
         // reset values
         this.examForm.reset();
         this.addable = false;
@@ -126,7 +127,7 @@ export class HomePage {
     this.selectedSemester = exam.semester;
     this.indexed = index;
 
-    this.examForm.patchValue({ course: exam.course, score: exam.score});
+    this.examForm.patchValue({ course: exam.course, score: exam.score });
 
   }
 
@@ -149,7 +150,7 @@ export class HomePage {
         }
         //  Update to service list
         this.examService.updateExam(index, newExam);
-        this.examsList[index] = newExam;
+
 
         // reset values
         this.examForm.reset();
@@ -165,7 +166,7 @@ export class HomePage {
 
   // Delete Exam of List
   deleteExam(index: number) {
-    this.examsList.splice(index, 1);
+
     this.examService.deleteExam(index);
     this.addable = false;
     this.editable = false;
@@ -173,7 +174,7 @@ export class HomePage {
   }
 
   // Cancel Exam adding or updating
-  cancel():void {
+  cancel(): void {
     this.addable = false;
     this.editable = false;
     this.averageCheck = false;
